@@ -1,0 +1,29 @@
+services:
+  yammer.token_encryption:
+    class: Drupal\yammer\Service\TokenEncryption
+    arguments:
+      - '@encryption'
+      - '@entity_type.manager'
+
+  yammer.token_factory:
+    class: Drupal\yammer\Service\YammerTokenFactory
+    arguments:
+      - '@entity_type.manager'
+      - '@yammer.token_encryption'
+
+  yammer.token_manager:
+    class: Drupal\yammer\Service\TokenManager
+    arguments:
+      - '@entity_type.manager'
+      - '@config.factory'
+      - '@yammer.token_factory'
+
+  yammer.api:
+    class: Drupal\yammer\Service\YammerApi
+    arguments:
+      - '@http_client'
+      - '@config.factory'
+      - '@current_user'
+      - '@yammer.token_manager'
+      - '@yammer.token_encryption'
+      - '@date.formatter'

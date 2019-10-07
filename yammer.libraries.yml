@@ -1,0 +1,5 @@
+feed:
+  version: 0.4
+  css:
+    base:
+      css/yammer.css: {}

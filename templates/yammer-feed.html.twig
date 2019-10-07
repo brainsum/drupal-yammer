@@ -1,0 +1,66 @@
+{{ attach_library('yammer/feed') }}
+
+<div class="yammer--group-feed--feed-wrapper">
+    <div class="yammer--group-feed--feed-header">
+        <span class="yammer-group-feed-title">{{ content.group_name }}</span>
+        <a href="{{ content.group_url }}">See more →</a>
+    </div>
+    <div class="yammer--group-feed--messages">
+        <ul>
+            {% for message in content.messages %}
+                <li>
+                    <div class="yammer--group-feed--message">
+                        <div class="yammer--group-feed--message--header">
+                            <span class="yammer--message--author-image">
+                                <img src="{{ message.author_image }}" alt="{{ message.author_name }}">
+                            </span>
+                            <span class="yammer--message--author-name">
+                                <a href="{{ message.author_url }}">{{ message.author_name }}</a>
+                            </span>
+                            on
+                            <span class="yammer--message--date">
+                                <a href="{{ message.url }}">{{ message.date }}</a>
+                            </span>
+                        </div>
+                        <div class="yammer--group-feed--message--body">
+                            {{ message.body }}
+                        </div>
+                        {% if message.attachments %}
+                            <div class="yammer--group-feed--message--attachments">
+                                <ul>
+                                    {% for attachment in message.attachments %}
+                                        {# @todo: Right now, we only support images. Later we should support more types. #}
+                                        {% if attachment.type == 'image' %}
+                                            <li>
+                                                <a href="{{ attachment.url }}" title="{{ attachment.description }}">
+                                                    {% if attachment.base64_data %}
+                                                        <img alt="{{ attachment.description }}"
+                                                             src="data:{{ attachment.base64_data.type }};base64,{{ attachment.base64_data.data }}"/>
+                                                    {% else %}
+                                                        <img alt="{{ attachment.description }}"
+                                                             src="{{ attachment.preview_url }}"/>
+                                                    {% endif %}
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+                        <div class="yammer--group-feed--message--meta">
+                            <span class="yammer--message--likes">{{ message.like_count_markup }}</span>
+                            <span class="yammer--message--replies">{{ message.reply_count_markup }}</span>
+                            <span class="yammer--message--shares">{{ message.share_count_markup }}</span>
+                        </div>
+                        <br>
+                    </div>
+                </li>
+            {% else %}
+                <li>No available messages.</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="yammer--group-feed--feed-footer">
+        <a href="{{ content.group_url }}">See more →</a>
+    </div>
+</div>

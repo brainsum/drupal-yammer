@@ -1,0 +1,26 @@
+yammer.auth_success:
+  path: '/yammer/auth/callback'
+  defaults:
+    _controller: 'yammer.api:authCallback'
+    _title: 'Success'
+  requirements:
+    # @todo: Refine.
+    _access: 'TRUE'
+
+yammer.login:
+  path: '/yammer/auth/login'
+  defaults:
+    _controller: \Drupal\yammer\Controller\LoginController::login
+    _title: 'Yammer Login'
+  requirements:
+    # @todo: Refine.
+    _access: 'TRUE'
+
+yammer.group:
+  path: '/yammer/data/group/{groupId}'
+  defaults:
+    _controller: \Drupal\yammer\Controller\GroupController::group
+    _title: 'Group data'
+  requirements:
+    _access: 'TRUE'
+    groupId: \d+

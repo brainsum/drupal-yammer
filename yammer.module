@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * @file
+ * Module file for yammer.
+ */
+
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Render\Markup;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\node\NodeInterface;
+
+/* @todo:
+ * - As discussed, log in a service account only, not the user.
+ * - Display feeds with the token of this user.
+ *
+ * @todo:
+ * - Custom feed frontend.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function yammer_theme() {
+  $templates = [];
+
+  $templates['yammer_feed'] = [
+    'variables' => [
+      'content' => [
+        'group_id' => '',
+      ],
+    ],
+  ];
+
+  return $templates;
+}
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function yammer_entity_base_field_info(EntityTypeInterface $entityType) {
+  $fields = [];
+
+  if ($entityType->id() === 'user') {
+    $fields['yammer_info'] = BaseFieldDefinition::create('yammer_user_data')
+      ->setLabel(new TranslatableMarkup('Yammer data'))
+      ->setDescription(new TranslatableMarkup('Yammer data belonging to the user.'))
+      ->setDisplayConfigurable('view', FALSE)
+      ->setDisplayConfigurable('form', FALSE);
+  }
+
+  return $fields;
+}

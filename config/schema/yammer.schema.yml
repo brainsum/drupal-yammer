@@ -1,0 +1,39 @@
+yammer.settings:
+  type: config_object
+  label: 'Yammer settings'
+  mapping:
+    client:
+      type: mapping
+      label: 'Client settings'
+      mapping:
+        id:
+          type: string
+          label: 'Yammer client ID'
+        secret:
+          type: string
+          label: 'Yammer client secret'
+        network_id:
+          type: string
+          label: 'Yammer network ID'
+        # @todo: Maybe add this: auth_callback: route_name
+    service_account:
+      type: mapping
+      label: 'Service account info'
+      mapping:
+        name:
+          type: string
+          label: 'Name of the service account'
+        mail:
+          type: string
+          label: 'E-mail address of the service account'
+    date_format:
+      type: string
+      label: 'Format to be used for dates coming from Yammer'
+
+field.widget.settings.yammer_feed_widget:
+  type: mapping
+  label: 'Yammer feed widget settings'
+  mapping:
+    label_hidden:
+      type: boolean
+      label: 'Hide label'

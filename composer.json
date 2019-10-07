@@ -1,0 +1,30 @@
+{
+    "name": "brainsum/yammer",
+    "description": "Yammer integration module for Drupal 8.",
+    "type": "drupal-module",
+    "license": "GPL-3.0-or-later",
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    },
+    "authors": [
+        {
+            "name": "mhavelant",
+            "email": "mhavelant@brainsum.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "discard-changes": true
+    },
+    "require": {
+        "php": "^7.2",
+        "drupal/core": "^8.5",
+        "drupal/real_aes": "^2.0",
+        "drupal/encrypt": "^3.0"
+    }
+}

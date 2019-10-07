@@ -1,0 +1,132 @@
+.node {
+    .node__content {
+        margin-bottom: 0
+    }
+
+    .field--label-hidden {
+        margin: 0 !important;
+    }
+
+    .node__footer {
+        margin-top: -25px;
+        margin-bottom: 40px;
+    }
+}
+
+.field--name-field-yammer-feed {
+    .field__label {
+        font-size: 20px;
+        margin-top: 20px;
+    }
+}
+
+.yammer--group-feed--feed-wrapper {
+    a {
+        font-weight: bold;
+    }
+
+    .yammer--group-feed--feed-header {
+        padding: 20px 25px;
+        border: 1px solid #ddd;
+        border-bottom: 0;
+        font-size: 20px;
+
+        a {
+            float: right;
+
+            &:link,
+            &:visited,
+            &:hover,
+            &:active {
+                color: black;
+            }
+        }
+
+        .yammer--message--date {
+            a {
+                color: #333;
+                font-weight: 100;
+            }
+        }
+    }
+
+    .yammer--group-feed--messages {
+        border: 1px solid #ddd;
+        padding: 15px 0px;
+
+        ul:first-child {
+            margin: 0;
+            padding: 15px 35px;
+            list-style-type: none;
+
+            li {
+                .yammer--group-feed--message {
+                    .yammer--group-feed--message--header {
+                        position: relative;
+                        margin-left: 55px;
+
+                        .yammer--message--author-image {
+                            position: absolute;
+                            margin-left: -54px;
+                        }
+                    }
+
+                    .yammer--group-feed--message--body {
+                        margin-left: 56px;
+
+                        span[data-resource-model="tag"] {
+                            color: #2c89c3;
+                            font-weight: bold;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+
+                        .linkified {
+                            background-image: url(/modules/custom/yammer/img/arrow-left.png);
+                            background-repeat: no-repeat;
+                            padding-left: 25px;
+                        }
+                    }
+
+                    .yammer--group-feed--message--meta {
+                        margin-left: 56px;
+                        font-size: 12px;
+
+                    }
+
+                    .yammer--group-feed--message--attachments {
+                        ul {
+                            display: flex;
+                            padding-left: 55px;
+
+                            li {
+                                width: 25%;
+                                padding-right: 10px;
+
+                                img {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .yammer--group-feed--feed-footer {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+
+    .yammer--group-feed--feed-footer {
+        margin-top: 10px;
+        font-size: 20px;
+        float: right;
+
+        a {
+            color: black;
+        }
+    }
+}

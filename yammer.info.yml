@@ -1,0 +1,16 @@
+name: Yammer
+type: module
+description: Yammer integration.
+core: 8.x
+package: Yammer
+
+php: 7.0
+
+# @todo: Configure key.
+
+dependencies:
+  - drupal:system (>=8.5)
+  - drupal:user
+  - drupal:datetime
+  - encrypt:encrypt
+  - real_aes:real_aes
