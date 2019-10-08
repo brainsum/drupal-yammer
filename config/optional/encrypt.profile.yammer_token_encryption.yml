@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - key.key.yammer_encryption_key
+  module:
+    - real_aes
+id: yammer_token_encryption
+label: 'Yammer token encryption'
+encryption_method: real_aes
+encryption_key: yammer_encryption_key
+encryption_method_configuration: {  }

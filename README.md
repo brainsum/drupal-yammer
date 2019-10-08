@@ -4,7 +4,14 @@ Yammer integration module for Drupal
 
 ## Setup
 
+Create an encryption key.
+
+- Generate the key with the `dd bs=1 count=32 if=/dev/urandom | openssl base64 > yammer.key` command
+- Move it to `<path to the private file system>/keys/yammer.key`
+
+
 Add this with non-example data to your settings.php:
+
 ```php
 // Yammer.
 $config['yammer.settings'] = [
