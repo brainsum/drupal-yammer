@@ -26,5 +26,9 @@
         "drupal/core": "^8.5",
         "drupal/real_aes": "^2.0",
         "drupal/encrypt": "^3.0"
+    },
+    "require-dev": {
+        "drupal-composer/drupal-security-advisories": "8.x-dev",
+        "roave/security-advisories": "dev-master"
     }
 }
