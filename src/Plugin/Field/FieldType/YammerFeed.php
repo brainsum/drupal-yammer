@@ -13,7 +13,7 @@ use Drupal\Core\TypedData\DataDefinition;
  * @FieldType(
  *   id = "yammer_feed",
  *   label = @Translation("Yammer Feed"),
- *   description = @Translation("Field for Yammer Group ID and Name."),
+ *   description = @Translation("Field for Yammer Group ID."),
  *   default_formatter = "yammer_feed_formatter",
  *   default_widget = "yammer_feed_widget",
  *   module = "yammer",
@@ -30,7 +30,7 @@ class YammerFeed extends FieldItemBase {
    */
   public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
     $properties['group_id'] = DataDefinition::create('integer')
-      ->setLabel(new TranslatableMarkup('Group ID'))
+      ->setLabel(new TranslatableMarkup('Yammer group ID'))
       ->setDescription(new TranslatableMarkup('Yammer group ID, value needs to be numeric unsigned.'))
       ->addConstraint('YammerIntegerGreaterThan1');
 

@@ -41,7 +41,7 @@ class YammerFeedWidget extends WidgetBase {
   ) {
     $element['group_id'] = [
       '#type' => 'number',
-      '#title' => $this->t('Group ID'),
+      '#title' => $this->t('Yammer group ID'),
       '#description' => $this->t("Set to 0 if you don't want to fill out."),
       '#default_value' => $items[$delta]->group_id ?? 0,
       '#size' => 15,
